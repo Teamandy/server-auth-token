@@ -4,12 +4,14 @@ const bodyParser = require('body-parser')
 const app = express()
 const router = require('./router')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 //connect to the DB
 mongoose.connect('mongodb://localhost:auth/auth')
 mongoose.Promise = global.Promise
 
 // App Setup
+app.use(cors())
 app.use(bodyParser.json())
 
 app.use('/', router)
