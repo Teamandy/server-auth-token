@@ -16,13 +16,6 @@ app.use(bodyParser.json())
 
 app.use('/', router)
 
-//handling errors
-app.use((err, req, res, next) => {
-    res.status(422).send({
-        error: err.message
-    })
-})
-
 // Server Setup
 const port = process.env.PORT || 3090;
 app.listen(port, () => {
